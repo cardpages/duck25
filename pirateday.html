@@ -1,236 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
+  <title>Thursday, August 28 — Pirate Day Adventure (With Links)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pirate Day — Hatteras Adventure (Thu, Aug 28)</title>
   <style>
-    :root{
-      --bg:#ffffff;
-      --ink:#1e1f24;
-      --muted:#6b7280;
-      --accent:#f9f871; /* date badge color to match the 23rd page */
-      --card:#f7f7fb;
-      --line:#e8e8ef;
-      --link:#0f62fe;
+    :root {
+      --bg: #ffffff;
+      --text: #102820;
+      --muted: #4a5d54;
+      --accent: #ff9eb5;
+      --accent-dark: #e57c97;
+      --warn: #c23b22;
+      --card: #f8f8f8;
+      --date-bg: #f9f871; /* bright yellow highlight */
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;}
-    .wrap{max-width:960px;margin:0 auto;padding:24px}
-    header{display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px;margin-bottom:16px;border-bottom:1px solid var(--line);padding-bottom:16px}
-    .date-badge{background:var(--accent);padding:8px 14px;border-radius:12px;font-weight:700;letter-spacing:.2px}
-    h1{margin:0;font-size:clamp(1.6rem,2.2vw + 1rem,2.2rem);font-weight:800}
-    .sub{color:var(--muted);margin-top:4px}
-    .btns{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 22px}
-    .btn{
-      display:inline-flex;align-items:center;gap:.55em;
-      padding:10px 14px;border:1px solid var(--line);border-radius:12px;
-      background:#fff;text-decoration:none;color:var(--ink);font-weight:600;box-shadow:0 1px 0 rgba(0,0,0,.04)
+    html, body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family: Arial, Helvetica, sans-serif; }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 20px; }
+    h1 { font-size: 28px; margin: 0 0 12px; }
+    .summary { background: var(--card); border-radius: 10px; padding: 14px; }
+    .meta { display: grid; gap: 4px; font-size: 16px; }
+    .drive-time { color: var(--warn); font-style: italic; font-size: 14px; display: block; margin-top: 4px; }
+    .section { border-top: 1px solid #dfe5e1; padding-top: 16px; margin-top: 16px; }
+    .time-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; }
+    .time { font-weight: 700; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover, a:focus { color:var(--accent-dark); text-decoration: underline; }
+    .btn-link {
+      display: inline-block; padding: 10px 14px; border-radius: 10px;
+      background: #ffe1e9; font-weight: 700; margin: 6px 6px 0 0;
     }
-    .btn:hover{border-color:#d9d9e6;transform:translateY(-1px)}
-    .section{margin:28px 0}
-    .section h2{margin:.2rem 0 10px;font-size:1.15rem}
-    .cards{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-    .card{
-      grid-column:span 12;background:var(--card);border:1px solid var(--line);
-      border-radius:16px;padding:14px 16px
+    .btn-container { display: flex; flex-wrap: wrap; gap: 6px; }
+    .corner-nav {
+      position: fixed; bottom: 16px; left: 16px; right: 16px;
+      display: flex; justify-content: space-between; pointer-events: none;
     }
-    @media (min-width:720px){ .card.span6{grid-column:span 6} }
-    .card h3{margin:0 0 6px;font-size:1.05rem}
-    .meta{display:flex;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:.92rem;margin:6px 0 10px}
-    .meta .chip{padding:4px 8px;background:#fff;border:1px solid var(--line);border-radius:999px}
-    .card p{margin:8px 0}
-    a{color:var(--link);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .list{margin:8px 0 0;padding-left:18px}
-    .rule{height:1px;background:var(--line);margin:18px 0}
-    .footer{color:var(--muted);font-size:.9rem;margin-top:28px}
-    /* anchor “Stops List” target */
-    .anchor{scroll-margin-top:80px}
+    .corner-nav a {
+      pointer-events: auto;
+      display: inline-block; padding: 10px 14px; border-radius: 999px;
+      background: #ffe1e9; font-weight: 700;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .corner-nav .prev { visibility: hidden; }
+    .spacer { height: 120px; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <div class="date-badge">Thu • Aug 28</div>
-      <div>
-        <h1>Pirate Day — Hatteras Adventure</h1>
-        <div class="sub">Graveyard of the Atlantic Museum → Cape Hatteras Light Station → Dinner at Jolly Roger on the way back</div>
+    <h1><span style="background:var(--date-bg); padding:2px 6px; border-radius:6px;">Thursday, August 28</span> — Pirate Day Adventure</h1>
+
+    <div class="summary">
+      <div class="meta">
+        <div><strong>Theme:</strong> Scenic NC‑12, lighthouse grounds, shipwreck history, pirate‑style dinner</div>
+        <div><strong>Route:</strong> Duck → Buxton (Cape Hatteras Light) → Hatteras Village (Museum) → Bodie Island → Kill Devil Hills → Duck</div>
+        <div><strong>Departure:</strong> 10:00 AM from rental</div>
       </div>
-    </header>
-
-    <nav class="btns">
-      <!-- 🗺️ Route Overview (keeps the emoji with the label if it wraps) -->
-      <a class="btn" href="https://www.google.com/maps/dir/?api=1&origin=Scarborough+Ln,+Duck,+NC&destination=1836+N+Virginia+Dare+Trail,+Kill+Devil+Hills,+NC+27948&waypoints=Graveyard+of+the+Atlantic+Museum,59200+Museum+Dr,+Hatteras,NC|Cape+Hatteras+Lighthouse,46379+Lighthouse+Rd,+Buxton,NC&travelmode=driving"
-         target="_blank" rel="noopener">🗺️ <span>Route overview</span></a>
-      <a class="btn" href="#stops">📍 <span>Stops list</span></a>
-    </nav>
-
-    <section class="section">
-      <h2>Overview</h2>
-      <div class="cards">
-        <div class="card">
-          <p>
-            A full-day pirate-themed loop from Duck down NC-12 to Hatteras, exploring shipwreck lore at the
-            <a href="https://graveyardoftheatlantic.com/" target="_blank" rel="noopener">Graveyard of the Atlantic Museum</a>,
-            visiting the <a href="https://www.nps.gov/caha/planyourvisit/chls.htm" target="_blank" rel="noopener">Cape Hatteras Light Station</a>,
-            then back north for dinner at the
-            <a href="https://jollyrogerobx.com/" target="_blank" rel="noopener">Jolly Roger Restaurant</a>.
-          </p>
-          <ul class="list">
-            <li><strong>Driving (total):</strong> ~4.5–5.5 hrs depending on traffic/winds (NC-12).</li>
-            <li><strong>Theme touches:</strong> shipwreck exhibits, lighthouse grounds, beach lookouts, pirate-y dinner vibe.</li>
-            <li><strong>Note:</strong> Lighthouse <em>climb</em> is paused for restoration in 2025; grounds and area are open.</li>
-          </ul>
-        </div>
+      <div class="btn-container">
+        <a class="btn-link" href="https://www.google.com/maps/dir/Scarborough+Ln,+Duck,+NC/Cape+Hatteras+Lighthouse,+Buxton,+NC/Graveyard+of+the+Atlantic+Museum,+Hatteras,+NC/Bodie+Island+Lighthouse,+Nags+Head,+NC/Jolly+Roger+Restaurant,+Kill+Devil+Hills,+NC/Scarborough+Ln,+Duck,+NC" target="_blank" rel="noopener">🗺️ Google Maps route overview</a>
       </div>
-    </section>
+    </div>
 
-    <div class="rule"></div>
-
-    <section class="section" id="stops">
-      <h2 class="anchor">Stops & Segments</h2>
-      <div class="cards">
-        <div class="card span6">
-          <h3>Duck → Graveyard of the Atlantic Museum</h3>
-          <div class="meta">
-            <span class="chip">~2 hr–2 hr 20 min</span>
-            <span class="chip">~75–85 miles</span>
-          </div>
-          <p>
-            Cruise NC-12 over the bridges and wildlife refuges to Hatteras Village. Expect photo-worthy views and occasional slow zones.
-          </p>
-          <p>
-            <a href="https://graveyardoftheatlantic.com/about/" target="_blank" rel="noopener">Museum info & address</a> •
-            <a href="https://www.google.com/maps/search/?api=1&query=Graveyard+of+the+Atlantic+Museum+NC" target="_blank" rel="noopener">Open in Maps</a>
-          </p>
-        </div>
-
-        <div class="card span6">
-          <h3>Graveyard of the Atlantic Museum</h3>
-          <div class="meta">
-            <span class="chip">~60–90 min</span>
-            <span class="chip">Free admission</span>
-          </div>
-          <p>
-            Exhibits on shipwrecks, U-boats, lifesaving stations, and OBX maritime history. Great scavenger hunt elements for kids.
-          </p>
-          <p>
-            <a href="https://graveyardoftheatlantic.com/" target="_blank" rel="noopener">Official site</a>
-          </p>
-        </div>
-
-        <div class="card span6">
-          <h3>Museum → Cape Hatteras Light Station (Buxton)</h3>
-          <div class="meta">
-            <span class="chip">~15–20 min</span>
-            <span class="chip">~11 miles</span>
-          </div>
-          <p>
-            Short hop up to the light station. Walk the grounds, visitor area, and beaches. (Climbing closed for 2025 restoration.)
-          </p>
-          <p>
-            <a href="https://www.nps.gov/caha/planyourvisit/chls.htm" target="_blank" rel="noopener">Visitor info</a> •
-            <a href="https://www.nps.gov/caha/planyourvisit/lighthouseclimbs.htm" target="_blank" rel="noopener">Climb status</a>
-          </p>
-        </div>
-
-        <div class="card span6">
-          <h3>Light Station time</h3>
-          <div class="meta">
-            <span class="chip">~60–90 min</span>
-          </div>
-          <p>
-            Grounds, keepers’ area, beach lookout, gift shop. Consider a quick beach walk or a snack break.
-          </p>
-          <p>
-            Optional bonus: If energy allows, a quick stop at Bodie Island Light on the way back north.
-            <a href="https://www.nps.gov/caha/planyourvisit/bils.htm" target="_blank" rel="noopener">Details</a>
-          </p>
-        </div>
-
-        <div class="card span6">
-          <h3>Buxton → Jolly Roger (Kill Devil Hills)</h3>
-          <div class="meta">
-            <span class="chip">~1 hr 30–40 min</span>
-            <span class="chip">~60–65 miles</span>
-          </div>
-          <p>
-            Head back up NC-12. Golden-hour views along the dunes—nice pull-offs for quick photos.
-          </p>
-          <p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Jolly+Roger+Restaurant+Kill+Devil+Hills" target="_blank" rel="noopener">Open in Maps</a>
-          </p>
-        </div>
-
-        <div class="card span6">
-          <h3>Dinner: Jolly Roger Restaurant</h3>
-          <div class="meta">
-            <span class="chip">1836 N. Virginia Dare Trail</span>
-            <span class="chip">Kill Devil Hills</span>
-          </div>
-          <p>
-            A kitschy, pirate-friendly classic—great way to keep the theme rolling for dinner on the way home.
-          </p>
-          <p>
-            <a href="https://jollyrogerobx.com/menu/" target="_blank" rel="noopener">Menu</a> •
-            <a href="https://jollyrogerobx.com/" target="_blank" rel="noopener">Website</a> •
-            <a href="https://jollyrogerobx.com/our-calendar/" target="_blank" rel="noopener">Live music calendar</a>
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Return: Jolly Roger → Duck</h3>
-          <div class="meta">
-            <span class="chip">~20–25 min</span>
-            <span class="chip">~10 miles</span>
-          </div>
-          <p>
-            Quick final leg up the Beach Road or US-158 to Scarborough Lane.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <div class="rule"></div>
-
-    <section class="section">
-      <h2>Loose Day Blocks</h2>
-      <div class="cards">
-        <div class="card span6">
-          <h3>Morning</h3>
-          <ul class="list">
-            <li>Depart Duck after breakfast.</li>
-            <li>Scenic NC-12 drive → Hatteras Village.</li>
-            <li>Graveyard of the Atlantic Museum (~60–90 min).</li>
+    <div class="section">
+      <h4 class="time-row">🚗 <span class="time">10:00 AM</span> — <a href="https://maps.app.goo.gl/5H5DpjtpiMUqNQ8W6" target="_blank" rel="noopener">Scenic drive to Hatteras</a></h4>
+      <ul>
+        <li>Roll south on NC‑12 through the Cape Hatteras National Seashore with relaxed pacing and built‑in pull‑off time for photos and breathers.</li>
+        <li><strong>Photo‑op options:</strong>
+          <ul>
+            <li>Pea Island Refuge overlooks — marsh and sound vistas; quick boardwalk and wildlife viewing.</li>
+            <li>Rodanthe “Jug‑Handle” Bridge — striking S‑curve bridge over Pamlico Sound; dramatic water views.</li>
+            <li>Bonner Bridge Pier / Oregon Inlet — former bridge span turned pedestrian pier; boats, birds, and inlet panoramas.</li>
+            <li>Haulover Day Use Area (“Canadian Hole”) — famous wind/kite spot on the sound; easy in‑and‑out lot.</li>
           </ul>
-        </div>
-        <div class="card span6">
-          <h3>Afternoon</h3>
-          <ul class="list">
-            <li>Buxton: Cape Hatteras Light Station walkabout (~60–90 min).</li>
-            <li>Short beach/lookout break if energy allows.</li>
-          </ul>
-        </div>
-        <div class="card span6">
-          <h3>Evening</h3>
-          <ul class="list">
-            <li>Drive north to Kill Devil Hills.</li>
-            <li>Dinner at Jolly Roger, then home to Duck.</li>
-          </ul>
-        </div>
-        <div class="card span6">
-          <h3>Pack/Prep Notes</h3>
-          <ul class="list">
-            <li>Water, sun protection, comfy shoes, light layers (windy on the dunes).</li>
-            <li>Snacks for kids; cash/card for gift shops.</li>
-            <li>Check <a href="https://www.nps.gov/caha/planyourvisit/chls.htm" target="_blank" rel="noopener">NPS alerts</a> & museum hours before leaving.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+        </li>
+      </ul>
+      <span class="drive-time">~2 hr drive + 30 min for photo‑ops</span>
+    </div>
 
-    <p class="footer">Have fun, captains. 🏴‍☠️</p>
+    <div class="section">
+      <h4 class="time-row">🗼 <span class="time">12:30 PM</span> — <a href="https://www.nps.gov/caha/planyourvisit/chls.htm" target="_blank" rel="noopener">Cape Hatteras Lighthouse (grounds)</a></h4>
+      <ul>
+        <li>Walk the keeper’s quarters area and boardwalks, snap lighthouse and ocean‑side shots, browse the small shop.</li>
+        <li><em>Climb remains closed for restoration; the grounds and facilities are open.</em></li>
+      </ul>
+      <span class="drive-time">30–60 min activity</span>
+    </div>
+
+    <div class="section">
+      <h4 class="time-row">🍴 <span class="time">1:30 PM</span> — Lunch / snack (TBD)</h4>
+      <ul>
+        <li>Quick bite in Buxton/Hatteras Village—aim for something fast so the museum isn’t rushed.</li>
+        <li>Great moment for water refill and restroom break.</li>
+      </ul>
+      <span class="drive-time">~30 min activity</span>
+    </div>
+
+    <div class="section">
+      <h4 class="time-row">⚓ <span class="time">2:15 PM</span> — <a href="https://share.google/4MhdeDQ6KAujXNzEv" target="_blank" rel="noopener">Graveyard of the Atlantic Museum</a></h4>
+      <ul>
+        <li>Highlights: Outer Banks shipwrecks, U‑boats, lifesaving stations, and pirate lore—kid‑friendly exhibits with engaging artifacts.</li>
+        <li>Free admission; a focused pass through the main galleries keeps energy up for the ride north.</li>
+      </ul>
+      <span class="drive-time">45–60 min activity</span>
+    </div>
+
+    <div class="section">
+      <h4 class="time-row">🚗 <span class="time">3:30 PM</span> — <a href="https://maps.app.goo.gl/mDEWNwTGn1JzYZsC6" target="_blank" rel="noopener">Drive north to Bodie Island Lighthouse</a></h4>
+      <ul>
+        <li>Head back up NC‑12 along dunes and sound—golden‑hour light starts to get nice on the way.</li>
+      </ul>
+      <span class="drive-time">~1 hr 30 min drive</span>
+    </div>
+
+    <div class="section">
+      <h4 class="time-row">🗼 <span class="time">5:00 PM</span> — <a href="https://www.nps.gov/caha/planyourvisit/bils.htm" target="_blank" rel="noopener">Bodie Island Lighthouse</a></h4>
+      <ul>
+        <li>Short stop for photos, a stroll on the boardwalk to the overlook, and a breather before dinner.</li>
+      </ul>
+      <span class="drive-time">~30 min activity</span>
+    </div>
+
+    <div class="section">
+      <h4 class="time-row">🍽️ <span class="time">6:00 PM</span> — <a href="https://share.google/GmQgmbesdRd32mpC0" target="_blank" rel="noopener">Dinner at Jolly Roger (Kill Devil Hills)</a></h4>
+      <ul>
+        <li>Classic OBX spot with pirate‑y décor and hearty plates; easy parking and casual vibe for mixed ages.</li>
+        <li>Nice chance to warm up indoors after a breezy day on NC‑12.</li>
+      </ul>
+      <span class="drive-time">~1 hr 15 min activity</span>
+    </div>
+
+    <div class="section">
+      <h4 class="time-row">🏠 <span class="time">7:15 PM</span> — Return to rental</h4>
+      <ul>
+        <li>Short final leg back up the Beach Road/US‑158 to Duck; home by early evening.</li>
+      </ul>
+      <span class="drive-time">~25 min drive</span>
+    </div>
+
+    <div class="spacer"></div>
+  </div>
+
+  <div class="corner-nav" aria-hidden="false">
+    <a class="prev" href="day5.html">← Day 5</a>
+    <a class="next" href="day7.html">Day 7 →</a>
   </div>
 </body>
 </html>
