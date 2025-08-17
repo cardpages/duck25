@@ -102,15 +102,102 @@
             font-size: 16px;
         }
         
+        /* Mobile responsiveness */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+                max-width: 100%;
+            }
+            
+            .title {
+                font-size: 24px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+            
+            .checklist-item {
+                font-size: 16px;
+                margin: 10px 0;
+            }
+            
+            .checkbox {
+                width: 20px;
+                height: 20px;
+                margin-right: 12px;
+            }
+            
+            .emoji {
+                font-size: 20px;
+                margin-right: 8px;
+            }
+            
+            .header, .section, .special, .super-special {
+                margin: 10px 0;
+                padding: 12px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 8px;
+            }
+            
+            .title {
+                font-size: 22px;
+            }
+            
+            .section-title {
+                font-size: 18px;
+            }
+            
+            .checklist-item {
+                font-size: 15px;
+                flex-wrap: wrap;
+            }
+            
+            .checkbox {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .emoji {
+                font-size: 18px;
+            }
+        }
+        
         @media print {
             body { 
                 background: white;
                 padding: 10px;
+                max-width: 8.5in;
+                font-size: 14px;
             }
             .section {
                 page-break-inside: avoid;
                 box-shadow: none;
                 border: 2px solid #ddd;
+                margin: 8px 0;
+                padding: 12px;
+            }
+            .title {
+                font-size: 26px;
+            }
+            .section-title {
+                font-size: 20px;
+            }
+            .checklist-item {
+                font-size: 16px;
+            }
+            .super-special, .special {
+                border: 2px solid #333;
+                background: #f9f9f9 !important;
+                color: #333 !important;
             }
         }
     </style>
@@ -208,23 +295,10 @@
 
     <div class="super-special">
         <div style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">
-            📸 SELFIE CHALLENGES! 📸
-        </div>
-        <div style="font-size: 18px;">
-            <strong>Get selfies with these signs along the way:</strong><br>
-            🥞 Your breakfast restaurant sign<br>
-            🧜‍♀️ Your surprise museum stop sign<br>
-            🍽️ Your lunch restaurant sign<br>
-            🏠 Your vacation rental house number!
-        </div>
-    </div>
-
-<div class="super-special">
-        <div style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">
             📸 SIGN SELFIE MISSION! 📸
         </div>
         <div style="font-size: 18px;">
-            <strong>Every time we stop somewhere FUN, it's SELFIE TIME!</strong><br>
+           <strong>Every time we stop somewhere FUN, it's SELFIE TIME!</strong><br>
             Point to a big sign that shows where we are and say "CHEESE!" 🧀<br>
             Get your picture with restaurant signs, store signs, museum signs - <br> 
             ANY place we visit! Collect selfies like you're collecting treasures! ✨<br>
