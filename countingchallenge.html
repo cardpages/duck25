@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road Trip Counting Challenges</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Comic Neue', cursive;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 10px;
+            background: linear-gradient(45deg, #FF69B4, #FF1493);
+            color: white;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        
+        .header {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .instructions {
+            font-size: 14px;
+            line-height: 1.3;
+        }
+        
+        .counting-section {
+            background: rgba(255,255,255,0.1);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .checklist-item {
+            margin: 18px 0;
+            font-size: 16px;
+            line-height: 1.3;
+        }
+        
+        .item-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+        
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid white;
+            border-radius: 4px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        
+        .emoji {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        
+        .tally-line {
+            border-bottom: 2px solid white;
+            height: 25px;
+            margin: 5px 0;
+            padding-left: 8px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .winner-section {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #333;
+            margin: 15px 0 0 0;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .winner-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .winner-text {
+            font-size: 14px;
+            line-height: 1.3;
+        }
+        
+
+        
+        /* PRINT STYLES - Ink-friendly but colorful */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            body { 
+                background: white !important;
+                color: #333 !important;
+                padding: 0.4in !important;
+                margin: 0 !important;
+                width: 7.7in !important;
+                min-height: 10.2in !important;
+                font-size: 14px !important;
+                box-sizing: border-box;
+            }
+            
+            .print-button {
+                display: none !important;
+            }
+            
+            .header {
+                background: linear-gradient(45deg, #FFE5F0, #FFF0F8) !important;
+                border: 3px solid #FF69B4 !important;
+                color: #333 !important;
+                backdrop-filter: none;
+                margin-bottom: 12px !important;
+                padding: 12px !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+            
+            .title {
+                font-size: 22px !important;
+                margin-bottom: 6px !important;
+                color: #E91E63 !important;
+                text-shadow: none !important;
+            }
+            
+            .subtitle {
+                font-size: 15px !important;
+                margin-bottom: 8px !important;
+                color: #AD1457 !important;
+            }
+            
+            .instructions {
+                font-size: 13px !important;
+                color: #333 !important;
+            }
+            
+            .counting-section {
+                background: #F8F9FF !important;
+                border: 2px solid #3F51B5 !important;
+                backdrop-filter: none;
+                margin: 8px 0 !important;
+                padding: 12px !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .checklist-item {
+                margin: 14px 0 !important;
+                font-size: 15px !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                color: #333 !important;
+            }
+            
+            .checkbox {
+                width: 18px !important;
+                height: 18px !important;
+                border: 2px solid #3F51B5 !important;
+                background: white !important;
+            }
+            
+            .emoji {
+                font-size: 18px !important;
+            }
+            
+            .tally-line {
+                border-bottom: 2px solid #3F51B5 !important;
+                height: 22px !important;
+                margin: 4px 0 !important;
+                font-size: 12px !important;
+                color: #666 !important;
+            }
+            
+            .winner-section {
+                background: linear-gradient(45deg, #FFF9E6, #FFECB3) !important;
+                color: #F57F17 !important;
+                border: 3px solid #FF9800 !important;
+                margin: 12px 0 8px 0 !important;
+                padding: 12px !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .winner-title {
+                font-size: 18px !important;
+                margin-bottom: 6px !important;
+                color: #E65100 !important;
+            }
+            
+            .winner-text {
+                font-size: 13px !important;
+                color: #333 !important;
+            }
+            
+            .footer-text {
+                font-size: 15px !important;
+                text-shadow: none !important;
+                margin-top: 8px !important;
+                color: #4CAF50 !important;
+            }
+            
+            /* Ensure page breaks work properly */
+            @page {
+                size: letter;
+                margin: 0.3in;
+            }
+            
+            /* Prevent widows and orphans */
+            h1, h2, h3, h4, h5, h6 {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+            
+            /* Force backgrounds and colors to print */
+            body, .header, .counting-section, .winner-section {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="title">🏆 ROAD TRIP COUNTING CHALLENGE! 🏆</div>
+           <div class="instructions">
+            <strong>How to Play:</strong><br>
+            Keep a tally as you spot these things during your trip.<br>
+            Write your final count in each box!
+        </div>
+    </div>
+
+    <div class="counting-section">
+        <div class="checklist-item">
+            <div class="item-header">
+                <div class="checkbox"></div>
+                <div class="emoji">🚗</div>
+                <div>Cars with stuff on them — like bikes, surfboards, luggage… even hanging off the back!</div>
+            </div>
+            <div class="tally-line">Keep your tally here:</div>
+        </div>
+        
+        <div class="checklist-item">
+            <div class="item-header">
+                <div class="checkbox"></div>
+                <div class="emoji">🐔</div>
+                <div>Chicken houses or coupes (those long, white, low buildings where chickens live!)</div>
+            </div>
+            <div class="tally-line">Keep your tally here:</div>
+        </div>
+        
+        <div class="checklist-item">
+            <div class="item-header">
+                <div class="checkbox"></div>
+                <div class="emoji">👋</div>
+                <div>People waving at you from cars, sidewalks, or anywhere! Wave first so they wave back!</div>
+            </div>
+            <div class="tally-line">Keep your tally here:</div>
+        </div>
+        
+        <div class="checklist-item">
+            <div class="item-header">
+                <div class="checkbox"></div>
+                <div class="emoji">🦅</div>
+                <div>Really BIG birds like hawks in the sky, herons in marshes, vultures by the road</div>
+            </div>
+            <div class="tally-line">Keep your tally here:</div>
+        </div>
+        
+        <div class="checklist-item">
+            <div class="item-header">
+                <div class="checkbox"></div>
+                <div class="emoji">😂</div>
+                <div>Business names that make you giggle! Funny signs, silly names, or weird spellings</div>
+            </div>
+            <div class="tally-line">Keep your tally here:</div>
+        </div>
+        
+        <div class="checklist-item">
+            <div class="item-header">
+                <div class="checkbox"></div>
+                <div class="emoji">🦌</div>
+                <div>WILD animals you see... like deer, rabbits, squirrels. — No pets or farm animals</div>
+            </div>
+            <div class="tally-line">Keep your tally here:</div>
+        </div>
+        
+        <div class="checklist-item">
+            <div class="item-header">
+                <div class="checkbox"></div>
+                <div class="emoji">🏚️</div>
+                <div>Really old buildings like falling-down barns, historic houses, or crumbling structures</div>
+            </div>
+            <div class="tally-line">Keep your tally here:</div>
+        </div>
+        
+        <div class="checklist-item">
+            <div class="item-header">
+                <div class="checkbox"></div>
+                <div class="emoji">🌉</div>
+                <div>Bridges you cross over or drive under (big ones, small ones, any kind!)</div>
+            </div>
+            <div class="tally-line">Keep your tally here:</div>
+        </div>
+        
+        <div class="checklist-item">
+            <div class="item-header">
+                <div class="checkbox"></div>
+                <div class="emoji">🚜</div>
+                <div>Tractors and farm machines in fields... combines, tractors, or any farming equipment!</div>
+            </div>
+            <div class="tally-line">Keep your tally here:</div>
+        </div>
+    </div>
+
+    <div class="winner-section">
+        <div class="winner-title">🥇 COUNTING CHAMPION! 🥇</div>
+        <div class="winner-text">
+            <strong>How many things did you spot?</strong><br>
+            Add up all your counts and write your name below!<br><br>
+            <strong>WINNER: ________________________</strong><br>
+            <strong>TOTAL COUNT: ___________</strong>
+        </div>
+    </div>
+
+
+</body>
+</html>
