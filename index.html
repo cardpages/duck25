@@ -3,17 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Trip!</title>
+  <title>Liou Family Duck Trip 2025</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
+      padding: 20px;
       font-family: "Trebuchet MS", sans-serif;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      background: linear-gradient(135deg, #87CEEB, #98FB98);
+      min-height: 100vh;
+      background: linear-gradient(135deg, #b0e0ff, #c8facc); /* lighter blues & greens */
+      text-align: center;
+      color: #333;
+    }
+
+    .intro-box {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 20px 25px;
+      max-width: 350px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .intro-box h1 {
+      margin: 0 0 0.3em;
+      font-size: 1.8em;
+      color: #132046;
+    }
+
+    .intro-box p {
+      margin: 0;
+      font-size: 1.1em;
+      color: #253155;
     }
 
     a {
@@ -24,6 +48,7 @@
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
     }
 
     a:hover {
@@ -39,7 +64,6 @@
 
     .caption {
       background: rgba(255, 255, 255, 0.9);
-      text-align: center;
       padding: 12px;
       font-size: 1.2em;
       color: #333;
@@ -47,9 +71,14 @@
   </style>
 </head>
 <body>
+  <div class="intro-box">
+    <h1>Liou Family<br>Duck Trip 2025</h1>
+    <p>Seven days of sand in our shoes, golf cart cruising, and hectic adventure.</p>
+  </div>
+
   <a href="x.html">
     <img src="family-pic.jpg" alt="Family trip photo">
-    <div class="caption">Tap to start our trip!</div>
+    <div class="caption">Tap to start our adventure 🏖️</div>
   </a>
 </body>
 </html>
