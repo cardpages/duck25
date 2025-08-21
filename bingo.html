@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road Trip Bingo Game</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Comic Neue', cursive;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #87CEEB, #98FB98);
+            color: #2c3e50;
+        }
+        
+        .bingo-card {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 5px;
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin: 15px auto;
+            max-width: 600px;
+        }
+        
+        .bingo-header {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #8e44ad;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 5px;
+        }
+        
+        .bingo-instructions {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .bingo-cell {
+            aspect-ratio: 1;
+            border: 3px solid #e74c3c;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 14px;
+            padding: 8px;
+            cursor: pointer;
+            background: white;
+            transition: all 0.3s ease;
+            min-height: 80px;
+        }
+        
+        .bingo-cell:hover {
+            background: #f8f9fa;
+            transform: scale(1.05);
+        }
+        
+        .bingo-cell.marked {
+            background: #2ecc71;
+            color: white;
+            border-color: #27ae60;
+        }
+        
+        .bingo-emoji {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+        
+        .bingo-text {
+            font-weight: bold;
+            line-height: 1.1;
+        }
+        
+        .free-space {
+            background: #f39c12 !important;
+            color: white !important;
+            border-color: #e67e22 !important;
+            font-size: 18px !important;
+        }
+
+        .instructions {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .instructions h3 {
+            color: #e74c3c;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .instructions p {
+            font-size: 18px;
+            line-height: 0.9;
+            margin-bottom: 0px;
+        }
+        
+        @media print {
+            body { 
+                background: white;
+                padding: 10px;
+            }
+            .bingo-card, .instructions {
+                box-shadow: none;
+                border: 2px solid #ddd;
+            }
+        }
+		
+		:root {
+  --accent: #ff9eb5;
+  --accent-dark: #e57c97;
+}
+
+/* Corner Nav */
+.corner-nav {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 9999;
+}
+.corner-nav a {
+  pointer-events: auto;
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #ffe1e9;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  color: var(--accent);
+  text-decoration: none;
+}
+.corner-nav a:hover,
+.corner-nav a:focus {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+/* Keep content from overlapping the nav if page is short */
+.spacer { height: 120px; }
+
+/* Hide nav in print */
+@media print {
+  .corner-nav { display: none !important; }
+    .corner-nav,
+  .spacer {
+    display: none !important;
+  }
+}
+
+    </style>
+    <script>
+        function toggleBingoCell(cell) {
+            cell.classList.toggle('marked');
+            checkBingo();
+        }
+        
+        function checkBingo() {
+            const cells = document.querySelectorAll('.bingo-cell:not(.free-space)');
+            const grid = [];
+            
+            // Create 5x5 grid (excluding header)
+            for (let i = 0; i < 5; i++) {
+                grid[i] = [];
+                for (let j = 0; j < 5; j++) {
+                    const index = i * 5 + j;
+                    if (i === 2 && j === 2) {
+                        grid[i][j] = true; // FREE space
+                    } else {
+                        const cellIndex = index > 12 ? index - 1 : index; // Adjust for FREE space
+                        grid[i][j] = cells[cellIndex] && cells[cellIndex].classList.contains('marked');
+                    }
+                }
+            }
+            
+            // Check rows, columns, and diagonals
+            let bingo = false;
+            
+            // Rows
+            for (let i = 0; i < 5; i++) {
+                if (grid[i].every(cell => cell)) bingo = true;
+            }
+            
+            // Columns
+            for (let j = 0; j < 5; j++) {
+                if (grid.every(row => row[j])) bingo = true;
+            }
+            
+            // Diagonals
+            if (grid.every((row, i) => row[i])) bingo = true;
+            if (grid.every((row, i) => row[4-i])) bingo = true;
+            
+            if (bingo) {
+                setTimeout(() => {
+                    alert('🎉 BINGO! You won! Great spotting! 🎉');
+                }, 100);
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="instructions">
+        <h3>🎯 HOW TO PLAY ROAD TRIP BINGO! 🎯</h3>
+        <p><strong>Click each square when you spot it!</strong></p>
+        <p>Get 5 in a row - horizontal, vertical, or diagonal - to win!</p>
+        <p>The middle square is FREE! 🌟</p>
+    </div>
+
+    <div class="bingo-card">
+        <div class="bingo-header">🚗 ROAD TRIP BINGO 🚗</div>
+        <div class="bingo-instructions">Cross the squares as you spot them!</div>
+        
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🚧</div>
+            <div class="bingo-text">Construction</div>
+        </div>
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🏍️</div>
+            <div class="bingo-text">Motorcycle</div>
+        </div>
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🦴</div>
+            <div class="bingo-text">Dog in Car Window</div>
+        </div>
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🎈</div>
+            <div class="bingo-text">Balloons</div>
+        </div>
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">⛽</div>
+            <div class="bingo-text">Funny Gas Station</div>
+        </div>
+        
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🚚</div>
+            <div class="bingo-text">Semi Truck</div>
+        </div>
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🦅</div>
+            <div class="bingo-text">Bird on Fence</div>
+        </div>
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🌽</div>
+            <div class="bingo-text">Corn Field</div>
+        </div>
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🏪</div>
+            <div class="bingo-text">Old Building</div>
+        </div>
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🚗</div>
+            <div class="bingo-text">Out-of-State Plates</div>
+        </div>
+        
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🐄</div>
+            <div class="bingo-text">Cow or Horse</div>
+        </div>
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🚜</div>
+            <div class="bingo-text">Tractor</div>
+        </div>
+        <div class="bingo-cell free-space">
+            <div class="bingo-emoji">⭐</div>
+            <div class="bingo-text">FREE!</div>
+        </div>
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🏠</div>
+            <div class="bingo-text">Red Barn</div>
+        </div>
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🚛</div>
+            <div class="bingo-text">Military Vehicle</div>
+        </div>
+        
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🐔</div>
+            <div class="bingo-text">Chicken House</div>
+        </div>
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🌉</div>
+            <div class="bingo-text">Bridge</div>
+        </div>
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🦆</div>
+            <div class="bingo-text">Ducks/Geese</div>
+        </div>
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">👋</div>
+            <div class="bingo-text">Someone Waving</div>
+        </div>
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🛒</div>
+            <div class="bingo-text">Farm Stand</div>
+        </div>
+        
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🚢</div>
+            <div class="bingo-text">Big Ship</div>
+        </div>
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🚀</div>
+            <div class="bingo-text">Giant Silo</div>
+        </div>
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">😂</div>
+            <div class="bingo-text">Funny Business Name</div>
+        </div>
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">🐕</div>
+            <div class="bingo-text">Animal Being Funny</div>
+        </div>
+        <div class="bingo-cell" onclick="toggleBingoCell(this)">
+            <div class="bingo-emoji">💰</div>
+            <div class="bingo-text">Toll Booth</div>
+        </div>
+    </div>
+
+
+<section id="no-print">
+    <div class="spacer"></div>
+  <div class="corner-nav" aria-hidden="false">
+    <a class="prev" href="scavhunt.html">← Scavenger Hunt</a>
+    <a class="next" href="counting.html">Counting Game →</a>
+  </div>
+</section>
+
+
+</body>
+</html>

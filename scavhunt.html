@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road Trip Scavenger Hunt - TO Duck</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Comic Neue', cursive;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #87CEEB, #98FB98);
+            color: #2c3e50;
+        }
+        
+        .header {
+            text-align: center;
+            background: white;
+            padding: 10px 20px 20px 20px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: #3498db;
+        }
+        
+        .section {
+            background: white;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #8e44ad;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 5px;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin: 12px 0;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+        
+        .checkbox {
+            width: 25px;
+            height: 25px;
+            border: 3px solid #e74c3c;
+            border-radius: 5px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .emoji {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        
+        .special {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 10px;
+            padding: 10px 120px;
+            margin: 10px 0;
+        }
+        
+        .super-special {
+            background: linear-gradient(45deg, #FF6347, #FF4500);
+            color: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .fun-fact {
+            background: #e8f8f5;
+            border-left: 5px solid #1abc9c;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+		
+		.special-plate {
+			background: linear-gradient(45deg, #1E90FF, #20B2AA); /* blue-teal blend */
+			color: white;
+			border-radius: 10px;
+			padding: 15px;
+			margin: 15px 0;
+			text-align: center;
+			box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+		}
+		
+		.special-wyr {
+			background: linear-gradient(45deg, #E6E6FA, #D8BFD8); /* lavender */
+			color: #2c3e50;
+			border-radius: 10px;
+			padding: 15px;
+			margin: 15px 0;
+			text-align: center;
+			box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+			font-size: 18px;
+		}
+		
+		.wyr-row {
+		  display: flex;
+		  justify-content: space-between;
+		  align-items: center;
+		  margin: 10px 0;
+		  font-size: 18px;
+		}
+
+		.wyr-option {
+		  flex: 1;
+		  text-align: center;
+		  padding: 8px;
+		  border: 2px dashed #aaa;
+		  border-radius: 8px;
+		  margin: 0 5px;
+		}
+
+		.wyr-or {
+		  font-weight: bold;
+		  margin: 0 10px;
+		}
+        
+        /* Show desktop version by default, hide mobile */
+        .desktop-version {
+            display: block;
+        }
+        .mobile-version {
+            display: none;
+        }
+
+        /* On mobile screens, hide desktop and show mobile version */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+                max-width: 100%;
+            }
+            
+            .title {
+                font-size: 24px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+            
+            .checklist-item {
+                font-size: 16px;
+                margin: 10px 0;
+            }
+            
+            .checkbox {
+                width: 20px;
+                height: 20px;
+                margin-right: 12px;
+            }
+            
+            .emoji {
+                font-size: 20px;
+                margin-right: 8px;
+            }
+            
+            .header, .section, .special, .super-special {
+                margin: 10px 0;
+                padding: 12px;
+            }
+            
+            .desktop-version {
+                display: none;
+            }
+            .mobile-version {
+                display: block;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 8px;
+            }
+            
+            .title {
+                font-size: 22px;
+            }
+            
+            .section-title {
+                font-size: 18px;
+            }
+            
+            .checklist-item {
+                font-size: 15px;
+                flex-wrap: wrap;
+            }
+            
+            .checkbox {
+                width: 18px;
+                height: 18px;
+            }
+            
+            .emoji {
+                font-size: 18px;
+            }
+        }
+        
+        @media print {
+            body { 
+                background: white;
+                padding: 10px;
+                max-width: 8.5in;
+                font-size: 14px;
+            }
+            .section {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 2px solid #ddd;
+                margin: 8px 0;
+                padding: 12px;
+            }
+            .title {
+                font-size: 26px;
+            }
+            .section-title {
+                font-size: 20px;
+            }
+            .checklist-item {
+                font-size: 16px;
+            }
+            .super-special {
+                background: linear-gradient(45deg, #FF6347, #FF4500) !important;
+                color: white !important;
+                border: 2px solid #333;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            .special {
+                background: linear-gradient(45deg, #FFD700, #FFA500) !important;
+                color: #333 !important;
+                border: 2px solid #333;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+				padding-left:100px;
+				padding-right:100px;
+			}
+			.mobile-version {
+                display: none;
+            }
+            .desktop-version {
+                display: block;
+            }
+			.special-plate {
+				background: linear-gradient(45deg, #1E90FF, #20B2AA) !important;
+				color: white !important;
+				border: 2px solid #333;
+				-webkit-print-color-adjust: exact;
+				print-color-adjust: exact;
+			}
+			.special-wyr {
+				background: linear-gradient(45deg, #E6E6FA, #D8BFD8) !important;
+				color: #2c3e50 !important;
+				border: 2px solid #333;
+				-webkit-print-color-adjust: exact;
+				print-color-adjust: exact;
+			}
+			.wyr-option {
+				border: 2px solid #333; /* solid for better printing */
+			}
+        }
+:root {
+  --accent: #ff9eb5;
+  --accent-dark: #e57c97;
+}
+
+/* Corner Nav (copied from z.html) */
+.corner-nav {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 9999;
+}
+.corner-nav a {
+  pointer-events: auto;
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #ffe1e9;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  color: var(--accent);              /* pink link text */
+  text-decoration: none;
+}
+.corner-nav a:hover,
+.corner-nav a:focus {
+  color: var(--accent-dark);
+  text-decoration: underline;
+}
+
+/* Spacer if you need to keep content from being covered */
+.spacer { height: 120px; }
+
+/* Don’t print the nav */
+@media print {
+  .corner-nav { display: none !important; }
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">🚗 ROAD TRIP SCAVENGER HUNT! 🚗</div>
+		<div class="subtitle">East Brunswick, NJ ➡️ Duck, NC</div>
+        <div style="font-size: 16px; margin-top: 10px;">Check off what you spot from the car window!</div>
+    </div>
+
+    <div class="special">
+        <div style="text-align: center; font-size: 20px; font-weight: bold;">
+            📸 PHOTO CHALLENGE! 📸
+        </div>
+        <div class="annoying" style="text-align: center; font-size: 16px; margin-top: 10px;">
+            If you spot something REALLY cool or weird, yell "PHOTO STOP!" 
+            and see if the grown-ups will pull over for a quick picture!
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🏠 LEAVING NEW JERSEY 🏠</div>
+        <div class="fun-fact">
+            <strong>Fun Fact:</strong> New Jersey is called the "Garden State" because it grows so many fruits and vegetables! 🍅
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🍎</div>
+            <div>A farm stand or roadside fruit stand</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🏪</div>
+            <div>A Wawa convenience store</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🚛</div>
+            <div>A truck with New Jersey license plates</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🏭</div>
+            <div>Industrial buildings or warehouses</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">⛽</div>
+            <div>A gas station with at least 8 pumps</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🚧</div>
+            <div>Orange construction cones</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🏙️ GREATER PHILADELPHIA AREA 🏙️</div>
+        <div class="fun-fact">
+            <strong>Cool Fact:</strong> Philadelphia is where the Liberty Bell is! It's also called the "City of Brotherly Love!" 🔔
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🏢</div>
+            <div>Tall buildings or skyscrapers in the distance</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🚂</div>
+            <div>Train tracks or a train</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🏫</div>
+            <div>A big school or university building</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🚌</div>
+            <div>A city bus or transit bus</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">⚽</div>
+            <div>A sports stadium or big arena</div>
+        </div>
+    </div>
+
+    <!-- Desktop/Print version (your preferred formatting) -->
+    <div class="super-special desktop-version">
+        <div style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">
+            📸 SIGN SELFIE MISSION! 📸
+        </div>
+        <div style="font-size: 18px;">
+           <strong>Every time we stop somewhere FUN, it's SELFIE TIME!</strong><br>
+            
+            Get your picture with restaurant signs, store signs, museum signs - <br> 
+            ANY place we visit! Collect selfies like you're collecting treasures! ✨<br>
+            <em>How many different sign selfies can you get on our adventure?</em>
+        </div>
+    </div>
+
+    <!-- Mobile version (no manual line breaks) -->
+    <div class="super-special mobile-version">
+        <div style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">
+            📸 SIGN SELFIE MISSION! 📸
+        </div>
+        <div style="font-size: 18px;">
+           <strong>Every time we stop somewhere FUN, it's SELFIE TIME!</strong>
+            Point to a big sign that shows where we are and say "CHEESE!" 🧀
+            Get your picture with restaurant signs, store signs, museum signs - ANY place we visit! Collect selfies like you're collecting treasures! ✨
+            <em>How many different sign selfies can you get on our adventure?</em>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🐔 DELAWARE - THE CHICKEN STATE! 🐔</div>
+        <div class="fun-fact">
+            <strong>Fun Fact:</strong> There are 200 chickens for every person in Delaware! 🤩 Delaware also has a state bug — the ladybug 🐞
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">💰</div>
+            <div>The toll booth for crossing into Delaware</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🏢</div>
+            <div>A DuPont or chemical company sign</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🐔</div>
+            <div>CHICKEN HOUSES (long white buildings)</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🚗</div>
+            <div>A car with Delaware's "First State" license plate</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🌽</div>
+            <div>Corn fields or farmland</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🦆</div>
+            <div>A pond or small lake with birds</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🦀 MARYLAND - THE CRAB STATE! 🦀</div>
+        <div class="fun-fact">
+            <strong>Fun Fact:</strong> Maryland is famous for its delicious blue crabs and Old Bay seasoning! The Chesapeake Bay produces more blue crabs than anywhere else in the world! 🦀
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🦀</div>
+            <div>A sign for crabs or seafood</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🏖️</div>
+            <div>A sign pointing to Ocean City or the beach</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🌊</div>
+            <div>Water or marsh on both sides of the road</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">⛵</div>
+            <div>A boat or marina</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🐦</div>
+            <div>Seagulls or water birds</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🚲</div>
+            <div>A person riding a bicycle (bicylists love this road)</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🌉 VIRGINIA'S EASTERN SHORE 🌉</div>
+        <div class="fun-fact">
+            <strong>Cool Fact:</strong> Virginia's Eastern Shore is home to wild ponies on Assateague Island! These horses have been roaming free for over 400 years! 🐴
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🏝️</div>
+            <div>The ARTIFICIAL ISLANDS (man-made islands with the tunnels!)</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">⚓</div>
+            <div>A big cargo ship or Navy ship in the shipping channel</div>
+        </div>
+        <div class="checklist-item">
+			<div class="checkbox"></div>
+			<div class="emoji">🦌</div>
+			<div>A deer crossing sign OR A LIVE DEER!</div>
+		</div>
+		<div class="checklist-item">
+			<div class="checkbox"></div>
+			<div class="emoji">🏖️</div>
+			<div>A big roadside billboard (bonus if it’s about the beach!)</div>
+		</div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🌾</div>
+            <div>A field of crops (corn or soybeans)</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🦢</div>
+            <div>Water birds in a marsh</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🏞️ NORTH CAROLINA MAINLAND! 🏞️</div>
+        <div class="fun-fact">
+            <strong>Fun Fact:</strong> North Carolina grows more sweet potatoes than any other state! It's also famous for BBQ and being "First in Flight!" ✈️
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🎉</div>
+            <div>"Welcome to North Carolina" sign</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🍠</div>
+            <div>A farm or field (sweet potatoes or other crops)</div>
+        </div>
+        <div class="checklist-item">
+			<div class="checkbox"></div>
+			<div class="emoji">🚙</div>
+			<div>A pickup truck with the windows down! (North Carolina loves trucks!)</div>
+</div>
+
+		<div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🏠</div>
+            <div>A red barn or farm building</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🚜</div>
+            <div>A tractor or farm equipment</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🌲</div>
+            <div>Pine trees (NC has lots of pine forests!)</div>
+        </div>
+    </div>
+
+
+		<div class="special-plate">
+		  <div style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">
+			🚗 LICENSE PLATE SHOWDOWN! 🚗
+		  </div>
+		  <div style="font-size: 18px;">
+			<strong>Who can spot the plate from the FARTHEST away?</strong><br>
+			Call out the state when you see it. Grown-ups are the judges for which state is farther!<br>
+			Bonus points if you find Alaska, Hawaii, or another country. 🌎
+		  </div>
+		</div>
+
+		<div class="special-wyr">
+		  <div style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">
+			🤔 WOULD YOU RATHER...? 🤔
+		  </div>
+		  <div style="text-align: left; max-width: 600px; margin: 0 auto;">
+			<div class="wyr-row">
+			  <div class="wyr-option">🌊 Build the world’s tallest sandcastle</div>
+			  <div class="wyr-or">OR</div>
+			  <div class="wyr-option">🚇 Dig the deepest sand tunnel</div>
+			</div>
+
+			<div class="wyr-row">
+			  <div class="wyr-option">🦀 Ride a giant crab to the beach</div>
+			  <div class="wyr-or">OR</div>
+			  <div class="wyr-option">🐔 Ride a giant chicken</div>
+			</div>
+
+			<div class="wyr-row">
+			  <div class="wyr-option">🍦 Eat ice cream for breakfast</div>
+			  <div class="wyr-or">OR</div>
+			  <div class="wyr-option">🍟 French fries for dessert</div>
+			</div>
+
+			<div class="wyr-row">
+			  <div class="wyr-option">🐬 Swim with dolphins</div>
+			  <div class="wyr-or">OR</div>
+			  <div class="wyr-option">🦅 Fly with seagulls</div>
+			</div>
+		  </div>
+		</div>
+
+
+    <div class="section">
+        <div class="section-title">🌊 ENTERING THE OUTER BANKS 🌊</div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🌉</div>
+            <div>A drawbridge going UP or DOWN</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🚢</div>
+            <div>A fishing boat with tall poles</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">💧</div>
+            <div>Water on BOTH sides of the road!</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">🏖️ ARRIVING IN DUCK! 🏖️</div>
+        <div class="fun-fact">
+            <strong>Welcome Fact:</strong> You made it to Duck! This tiny town is famous for its beaches and being car-free in some areas! 🚗
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🦆</div>
+            <div>A "Duck" town sign or street sign</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🏠</div>
+            <div>A beach house on stilts</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🌊</div>
+            <div>The Atlantic Ocean (you made it!)</div>
+        </div>
+        <div class="checklist-item">
+            <div class="checkbox"></div>
+            <div class="emoji">🎯</div>
+            <div>Your vacation rental house!</div>
+        </div>
+    </div>
+
+<section id="no-print">
+    <div class="spacer"></div>
+  <div class="corner-nav" aria-hidden="false">
+    <a class="prev" href="z.html">← Drive Home</a>
+    <a class="next" href="bingo.html">Bingo →</a>
+  </div>
+</section>
+
+</body>
+</html>

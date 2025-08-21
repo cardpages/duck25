@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Activities & Restaurants (Aug 23–30)</title>
+<style>
+  :root{
+    --bg:#ffffff;       /* white background */
+    --card:#fafafa;     /* very light card */
+    --ink:#222;         /* dark text */
+    --muted:#555;       /* muted gray */
+    --accent:#ffb3d9;   /* soft pastel pink */
+    --accent-2:#cbb7ff; /* soft pastel lilac */
+    --date:#f9f871;     /* yellow highlight */
+    --chip:#f0f2f7;     /* chip bg */
+    --ok:#4caf7d;       /* success green */
+  }
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:1100px;margin:0 auto;padding:24px;}
+  header{display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px;margin-bottom:20px;border-bottom:1px solid #ddd;padding-bottom:16px;}
+  .title{font-size:clamp(24px,3.2vw,40px);font-weight:800;letter-spacing:0.2px}
+  .date{background:var(--date);color:#141414;padding:6px 10px;border-radius:10px;font-weight:700;box-shadow:0 2px 0 rgba(0,0,0,.1)}
+  .note{color:var(--muted);font-size:14px}
+  .grid{display:grid;grid-template-columns:1fr;gap:16px;margin:18px 0 34px}
+  @media(min-width:880px){.grid{grid-template-columns:1fr 1fr}}
+  section h2{font-size:clamp(18px,2.2vw,26px);margin:6px 0 12px;font-weight:800;}
+  .card{background:var(--card);border-radius:18px;padding:16px 16px 14px;border:1px solid #eee;box-shadow:0 4px 12px rgba(0,0,0,.04)}
+  .rank{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent-2));padding:4px 10px;border-radius:999px;font-weight:800;font-size:13px;margin-bottom:10px;color:#333}
+  .card h3{margin:0 0 8px;font-size:18px}
+  .card a{color:var(--ink);text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:2px}
+  .card a:hover{opacity:.8}
+  .desc{color:var(--ink);line-height:1.5;margin-bottom:10px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .chip{background:var(--chip);border:1px solid #ddd;border-radius:999px;padding:6px 10px;font-size:12px;color:var(--muted)}
+  .chip strong{color:var(--ink);font-weight:800}
+  .list-compact .card{display:flex;flex-direction:column;gap:6px}
+  footer{color:var(--muted);font-size:12px;margin:18px 0 50px}
+    .corner-nav {
+      position: fixed; bottom: 16px; left: 16px; right: 16px;
+      display: flex; justify-content: space-between; pointer-events: none;
+    }
+    .corner-nav a {
+      pointer-events: auto;
+      display: inline-block; padding: 10px 14px; border-radius: 999px;
+      background: #ffe1e9; font-weight: 700;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+      .spacer { height: 120px; }
+
+.corner-nav a {
+  color: #ff9eb5;                 /* same pink as X */
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif; /* X uses Arial */
+}
+.corner-nav a:hover,
+.corner-nav a:focus {
+  color: #e57c97;                 /* X's hover pink */
+  text-decoration: underline;
+}
+.corner-nav a:visited { color: #ff9eb5; }     /* avoid purple visited */
+
+
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">Outer Banks Activity & Dining Picks</div>
+      <div class="date">Aug 23–30</div>
+      <div class="note">Here are some suggestions for ChatGPT & Claude.AI for how to fill up our schedule with activities and restaurants!</div>
+    </header>
+
+    <!-- ACTIVITIES -->
+    <section>
+      <h2>Recommended Activities (ranked)</h2>
+      <div class="grid">
+        <article class="card">
+          <span class="rank">#1</span>
+          <h3><a href="https://wildhorsetour.com/" target="_blank" rel="noopener">Wild Horse Tour (Carova/Corolla)</a></h3>
+          <p class="desc">This is the quintessential Outer Banks experience you can't get anywhere else. Guided 4×4 beach tours take you into the protected Carova area to see the legendary Spanish Colonial horses that have roamed these dunes for centuries. These aren't zoo animals—they're truly wild horses living freely on the beach. The tours are educational and thrilling, perfect for kids who will be amazed to see horses galloping along the shoreline. Most tours have high success rates for horse sightings, and guides share fascinating stories about shipwrecks and local history.</p>
+          <div class="chips">
+            <span class="chip"><strong>Drive</strong> ~40 min</span>
+            <span class="chip"><strong>Time</strong> 2–3 hrs</span>
+            <span class="chip"><strong>Cost</strong> ~$50–60 adult / ~$30–40 child</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="rank">#2</span>
+          <h3><a href="https://www.ncparks.gov/state-parks/jockeys-ridge-state-park" target="_blank" rel="noopener">Jockey's Ridge State Park</a></h3>
+          <p class="desc">Home to the tallest living sand dunes on the East Coast, this park offers an otherworldly landscape that feels like a mini-Sahara. Kids love running and rolling down the massive dunes (bring old clothes!), while adults enjoy the spectacular views from the top. It's also the premier spot for kite flying—the consistent winds make it perfect for beginners and experts alike. The park offers hang-gliding lessons if you're feeling adventurous, or you can simply watch the colorful hang gliders soaring overhead. The sunset views from the dunes are absolutely magical and worth timing your visit around.</p>
+          <div class="chips">
+            <span class="chip"><strong>Drive</strong> ~50 min</span>
+            <span class="chip"><strong>Time</strong> 1–2 hrs</span>
+            <span class="chip"><strong>Cost</strong> Free (lessons extra)</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="rank">#3</span>
+          <h3><a href="https://www.corollaraceway.com/" target="_blank" rel="noopener">Corolla Raceway</a></h3>
+          <p class="desc">Pure family fun with go-karts designed for all skill levels and ages. They offer single-rider karts for the older kids and adults, double-rider karts perfect for parent-child teams, and junior karts specifically sized for younger children. The track is well-maintained and safe, with helpful staff who ensure everyone has a great time. It's the perfect activity for a quick dose of adrenaline, and the competitive element between family members creates lasting memories. The location is convenient when you're already exploring the Corolla area, making it an easy add-on to lighthouse or wild horse adventures.</p>
+          <div class="chips">
+            <span class="chip"><strong>Drive</strong> ~30 min</span>
+            <span class="chip"><strong>Time</strong> 1–2 hrs</span>
+            <span class="chip"><strong>Cost</strong> ~$8–12 per ride</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="rank">#4</span>
+          <h3><a href="https://www.kittyhawk.com/" target="_blank" rel="noopener">Kitty Hawk Kites (Multiple Locations)</a></h3>
+          <p class="desc">The Outer Banks' premier outdoor activity outfitter offering over 30 different adventures. While famous for kite flying lessons and sales, they also provide hang gliding instruction, parasailing, kayak tours, stand-up paddleboard rentals, and scenic flights. Their instructors are patient and skilled at working with families, making even nervous beginners feel confident. The kite flying lessons are particularly great for kids—there's something magical about controlling a colorful kite dancing in the ocean breeze. They have multiple locations, so you can often find them near wherever else you're exploring.</p>
+          <div class="chips">
+            <span class="chip"><strong>Drive</strong> ~40 min</span>
+            <span class="chip"><strong>Time</strong> 2–4 hrs</span>
+            <span class="chip"><strong>Cost</strong> Varies by activity</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="rank">#5</span>
+          <h3><a href="https://www.norbanks.com/" target="_blank" rel="noopener">Kayak or SUP on Currituck Sound</a></h3>
+          <p class="desc">The sound side of the Outer Banks offers a completely different water experience—calm, protected waters perfect for families with varying skill levels. Unlike ocean kayaking, the sound is typically flat and peaceful, making it ideal for first-timers and children. You'll paddle through pristine marshlands where you might spot herons, egrets, dolphins, and other wildlife. The water is usually warmer and less intimidating than the ocean, and if someone tips over, it's much easier to get back in. Nor'Banks and other local outfitters provide quality equipment and brief instruction, ensuring everyone feels comfortable on the water.</p>
+          <div class="chips">
+            <span class="chip"><strong>Drive</strong> 5–10 min</span>
+            <span class="chip"><strong>Time</strong> 1–3 hrs</span>
+            <span class="chip"><strong>Cost</strong> ~$30–40 rental</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="rank">#6</span>
+          <h3><a href="https://obcinc.org/currituck-beach-lighthouse/" target="_blank" rel="noopener">Currituck Beach Lighthouse (Corolla)</a></h3>
+          <p class="desc">This stunning red brick lighthouse stands 162 feet tall and offers breathtaking panoramic views of the Outer Banks after a manageable 220-step climb. Unlike many lighthouses that are painted, Currituck's natural brick exterior makes it unique and photogenic. The climb is exciting for kids old enough to handle it, and the views from the top showcase the incredible geography where ocean meets sound. The lighthouse is beautifully maintained and the surrounding grounds are perfect for photos. You can easily combine this with a visit to the nearby Whalehead Club for a full historical experience in Corolla.</p>
+          <div class="chips">
+            <span class="chip"><strong>Drive</strong> ~35 min</span>
+            <span class="chip"><strong>Time</strong> 30–60 min</span>
+            <span class="chip"><strong>Cost</strong> ~$12 pp</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="rank">#7</span>
+          <h3><a href="https://www.nps.gov/wrbr/index.htm" target="_blank" rel="noopener">Wright Brothers National Memorial</a></h3>
+          <p class="desc">Stand where human flight began! This iconic memorial marks the exact spot where Orville and Wilbur Wright made their historic first powered flight on December 17, 1903. The visitor center features excellent exhibits including a full-size replica of the 1903 flyer, and kids love the hands-on activities that explain the principles of flight. Walking the actual flight path gives you a profound sense of history—it's amazing how short that first flight was, yet how it changed the world. The memorial itself sits atop a hill with beautiful views, and boulder markers show the distances of each of the four flights made that historic day.</p>
+          <div class="chips">
+            <span class="chip"><strong>Drive</strong> ~35 min</span>
+            <span class="chip"><strong>Time</strong> 1–2 hrs</span>
+            <span class="chip"><strong>Cost</strong> ~$10 pp</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="rank">#8</span>
+          <h3><a href="https://www.ncaquariums.com/roanoke-island" target="_blank" rel="noopener">NC Aquarium on Roanoke Island (Manteo)</a></h3>
+          <p class="desc">This compact but engaging aquarium showcases the incredible marine life of North Carolina's waters. The touch tanks are always a hit with kids, letting them gently interact with stingrays, horseshoe crabs, and sea stars. The shark tank is impressive, and the river otter exhibit is absolutely delightful—these playful creatures often put on quite a show. What makes this aquarium special is its focus on local ecosystems, so everything you see actually lives in the waters around the Outer Banks. It's perfectly sized for families, not overwhelming like larger aquariums, and the staff are knowledgeable and enthusiastic about marine conservation.</p>
+          <div class="chips">
+            <span class="chip"><strong>Drive</strong> ~1 hr 15 min</span>
+            <span class="chip"><strong>Time</strong> 1–2 hrs</span>
+            <span class="chip"><strong>Cost</strong> ~$15 adult / ~$13 child</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="rank">#9</span>
+          <h3><a href="https://historicsites.nc.gov/all-sites-catalog/roanoke-island-festival-park" target="_blank" rel="noopener">Roanoke Island Festival Park (Manteo)</a></h3>
+          <p class="desc">Step back in time to experience America's first English settlement attempt through interactive living history. The centerpiece is the Elizabeth II, a faithful reproduction of a 16th-century ship where costumed interpreters let kids help set sails, plot courses, and swab decks. The Settlement Site features hands-on activities like trying period beds, woodworking demonstrations, and historical games. Kids can watch blacksmiths at work and even try their hand at colonial crafts. The Adventure Museum rounds out the experience with 400 years of regional history presented in engaging, family-friendly exhibits. It's educational entertainment at its finest, bringing history to life in ways textbooks never could.</p>
+          <div class="chips">
+            <span class="chip"><strong>Drive</strong> ~1 hr 20 min</span>
+            <span class="chip"><strong>Time</strong> 2–3 hrs</span>
+            <span class="chip"><strong>Cost</strong> ~$12 adult / ~$8 child</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="rank">#10</span>
+          <h3><a href="https://elizabethangardens.org/" target="_blank" rel="noopener">Elizabethan Gardens (Manteo)</a></h3>
+          <p class="desc">These 10.5 acres of meticulously maintained gardens offer a peaceful respite from busier tourist activities. Created as a memorial to Sir Walter Raleigh's colonists, the gardens feature a stunning variety of plants that thrive in the coastal climate, from ancient live oaks draped in Spanish moss to formal rose gardens and wildflower meadows. The garden paths are easy to walk, making it accessible for all ages, and there are plenty of benches where you can rest while enjoying sound breezes. Kids enjoy spotting butterflies, lizards, and birds throughout the gardens. The statuary and fountains provide beautiful photo opportunities, and the gardens are especially lovely in the golden hour before sunset.</p>
+          <div class="chips">
+            <span class="chip"><strong>Drive</strong> ~1 hr 20 min</span>
+            <span class="chip"><strong>Time</strong> 1–1.5 hrs</span>
+            <span class="chip"><strong>Cost</strong> ~$12 adult / ~$8 child</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="rank">#11</span>
+          <h3><a href="https://www.jennettespier.net/" target="_blank" rel="noopener">Jennette's Pier (Nags Head)</a></h3>
+          <p class="desc">This 1,000-foot concrete pier extends far into the Atlantic, offering a unique perspective of the ocean and coastline. Even if you're not fishing, the walk to the end provides stunning views and often opportunities to see dolphins playing in the waves below. The pier is educational as well as recreational, with exhibits about marine life and the coastal environment. Kids love watching the pelicans dive for fish and seeing what the fishermen are catching. The concrete construction makes it sturdy and safe, and there are plenty of places to sit and enjoy the ocean breeze. It's particularly beautiful at sunrise or sunset when the light plays across the water.</p>
+          <div class="chips">
+            <span class="chip"><strong>Drive</strong> ~55 min</span>
+            <span class="chip"><strong>Time</strong> 30–60 min</span>
+            <span class="chip"><strong>Cost</strong> ~$2 walk / ~$10 fish</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="rank">#12</span>
+          <h3><a href="https://www.outerbanks.com/the-whalehead-club.html" target="_blank" rel="noopener">Whalehead Club House & Grounds (Corolla)</a></h3>
+          <p class="desc">This spectacular 1925 Art Nouveau mansion tells the fascinating story of the wealthy Knight family who built it as their waterfowl hunting retreat. The restored interior features original Tiffany glass sconces, Mrs. Knight's Steinway piano, corduroy walls, cork flooring, and even an original Otis elevator. The guided tours reveal stories of lavish 1920s parties and the remote luxury lifestyle of the era. Even if you skip the house tour, the 39-acre grounds along Currituck Sound are free to explore and absolutely gorgeous. The sweeping lawns, historic outbuildings, and waterfront views make it one of the most photogenic spots on the Outer Banks. Kids enjoy the wide-open spaces to run around while adults appreciate the stunning architecture and history.</p>
+          <div class="chips">
+            <span class="chip"><strong>Drive</strong> ~35 min</span>
+            <span class="chip"><strong>Time</strong> 1–2 hrs</span>
+            <span class="chip"><strong>Cost</strong> ~$10–15 house tour (grounds free)</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="rank">#13</span>
+          <h3><a href="https://www.h2obxwaterpark.com/" target="_blank" rel="noopener">H2OBX Waterpark (Nags Head)</a></h3>
+          <p class="desc">When you want a break from sand and saltwater, this indoor/outdoor waterpark offers climate-controlled fun regardless of weather. Features multiple water slides, a lazy river perfect for floating, dedicated kids' play areas with smaller slides and water features, and traditional pool areas for swimming. It's especially great on rainy days or when you want a change of pace from beach activities. The indoor sections mean you can enjoy water fun even if it's too cool or cloudy for the beach. Staff supervision ensures safety, and there are plenty of lounge areas for parents to relax while kids play. It's the kind of place where you can easily spend half a day, and everyone from toddlers to teens will find something they enjoy.</p>
+          <div class="chips">
+            <span class="chip"><strong>Drive</strong> ~45 min</span>
+            <span class="chip"><strong>Time</strong> 3–5 hrs</span>
+            <span class="chip"><strong>Cost</strong> ~$25–35 pp</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- RESTAURANTS -->
+    <section class="list-compact">
+      <h2>Suggested Restaurants</h2>
+      <div class="grid">
+
+
+  <article class="card">
+    <h3><a href="https://www.google.com/search?q=The+Blue+Point+Duck+NC+restaurant" target="_blank" rel="noopener">The Blue Point (Duck)</a></h3>
+    <p class="desc">Refined coastal cuisine with sound‑front sunsets and a long‑running fine‑dining vibe. Local seafood, polished service—great for a special night.</p>
+    <p class="rating">Tripadvisor 4.4/5 (1,486)</p>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.google.com/search?q=NC+Coast+Grill+Bar+Duck+NC+restaurant" target="_blank" rel="noopener">NC Coast Grill &amp; Bar (Duck)</a></h3>
+    <p class="desc">Chef‑driven coastal plates, raw bar, and cocktails with water views. Upscale but relaxed; good oyster rotation.</p>
+    <p class="rating">Tripadvisor 4.3/5 (158)</p>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.google.com/search?q=Paper+Canoe+Duck+NC+restaurant" target="_blank" rel="noopener">The Paper Canoe (Duck/Corolla line)</a></h3>
+    <p class="desc">Intimate, waterfront dining; handmade pastas and fresh, seasonal seafood. Sunset tables are prized.</p>
+    <p class="rating">Tripadvisor 4.5/5 (744)</p>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.google.com/search?q=Coastal+Cravings+Duck+NC+restaurant" target="_blank" rel="noopener">Coastal Cravings (Duck)</a></h3>
+    <p class="desc">Casual, family‑friendly spot for breakfast, steamers, and crowd‑pleasing seafood. Drive‑thru takeout is a plus.</p>
+    <p class="rating">Tripadvisor 4.2/5 (1,192)</p>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.google.com/search?q=Steamers+Southern+Shores+NC+restaurant" target="_blank" rel="noopener">Steamers (Southern Shores)</a></h3>
+    <p class="desc">Go‑to for steamer pots (dine‑in or takeout). Generous portions, unfussy setting—perfect for a low‑key seafood feast.</p>
+    <p class="rating">Tripadvisor 4.6/5 (381)</p>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.google.com/search?q=Miller%27s+Seafood+Steakhouse+Kill+Devil+Hills+NC" target="_blank" rel="noopener">Miller's Seafood &amp; Steakhouse (Kill Devil Hills)</a></h3>
+    <p class="desc">Local mainstay (since 1978) serving hearty breakfasts and classic seafood/steaks in a friendly, family setting.</p>
+    <p class="rating">Tripadvisor 4.4/5 (1,676)</p>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.google.com/search?q=Goombays+Grille+Raw+Bar+Kill+Devil+Hills+NC" target="_blank" rel="noopener">Goombays Grille &amp; Raw Bar (Kill Devil Hills)</a></h3>
+    <p class="desc">Colorful, island‑style hangout with a raw bar and Caribbean‑leaning seafood. Fun vibe; easy with kids.</p>
+    <p class="rating">Tripadvisor 4.2/5 (692)</p>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.google.com/search?q=Kill+Devil+Grill+Kill+Devil+Hills+NC" target="_blank" rel="noopener">Kill Devil Grill (Kill Devil Hills)</a></h3>
+    <p class="desc">Beloved diner‑style spot with sharp execution—creative American plates, generous portions, and stellar service.</p>
+    <p class="rating">Tripadvisor 4.7/5 (2,424)</p>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.google.com/search?q=Colington+Cafe+Kill+Devil+Hills+NC" target="_blank" rel="noopener">Colington Cafe (Kill Devil Hills)</a></h3>
+    <p class="desc">“Best‑kept secret” energy: cozy Victorian house, polished service, and well‑done seafood/steaks for date‑night vibes.</p>
+    <p class="rating">Tripadvisor 4.5/5 (≈1,327)</p>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.google.com/search?q=Blue+Moon+Beach+Grill+Nags+Head+NC" target="_blank" rel="noopener">Blue Moon Beach Grill (Nags Head)</a></h3>
+    <p class="desc">Lively, creative Southern‑coastal plates and cocktails. Popular spot—expect energy and consistently strong food.</p>
+    <p class="rating">Tripadvisor 4.6/5 (2,811)</p>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.google.com/search?q=Tortugas+Lie+Nags+Head+NC+restaurant" target="_blank" rel="noopener">Tortugas’ Lie (Nags Head)</a></h3>
+    <p class="desc">Laid‑back Caribbean vibe with sushi, beachy plates, and a long‑time local following. First‑come seating.</p>
+    <p class="rating">Tripadvisor 4.4/5 (1,523)</p>
+  </article>
+
+  <article class="card">
+    <h3><a href="https://www.google.com/search?q=Stripers+Bar+Grille+Manteo+NC" target="_blank" rel="noopener">Stripers Bar &amp; Grille (Manteo)</a></h3>
+    <p class="desc">Soundfront American fare with broad seafood menu and water views; easy add‑on when exploring Roanoke Island.</p>
+    <p class="rating">Tripadvisor 4.4/5 (779)</p>
+  </article>
+  </div>
+</section>
+
+
+
+
+        <div class="spacer"></div>
+
+
+
+
+		<div class="corner-nav" aria-hidden="false">
+			<a class="prev" href="pirateday.html">← Pirate Day</a>
+			<a class="next" href="z.html">Drive Home →</a>
+		</div>	
+
+  
+
+  </div>
+</body>
+</html>
